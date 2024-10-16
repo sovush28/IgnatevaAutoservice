@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Ignateva_Autoservice"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ServicePage">
+      Title="Услуги автосервиса" FontFamily="Tw Cen MT"
+      IsVisibleChanged="Page_IsVisibleChanged">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -44,6 +45,9 @@
                          Width="300" FontSize="20" Name="RButtonDown"
                          Checked="RButtonDown_Checked"></RadioButton>
         </StackPanel>
+
+        <Button Content="Добавить" Name="AddButton" Click="AddButton_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom"></Button>
         
         <ListView Name="ServiceListView" Grid.Row="2">
             <ListView.ItemTemplate>
@@ -77,7 +81,7 @@
                         <TextBlock Text="{Binding Discount, StringFormat=*скидка {0} % }" Opacity="{Binding Discount}" Margin="5"
                                    Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" FontSize="16"></TextBlock>
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
-                            <Button Name="EditButton" Content="редактировать" Margin="2"></Button>
+                            <Button Name="EditButton" Click="EditButton_Click" Content="редактировать" Margin="2"></Button>
                             <Button Name="DeleteButton" Content="удалить" Margin="2"></Button>
                         </StackPanel>
                     </Grid>

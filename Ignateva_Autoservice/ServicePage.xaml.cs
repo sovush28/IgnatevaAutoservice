@@ -76,10 +76,12 @@ namespace Ignateva_Autoservice
             UpdateServices();
         }
 
+        /*
         private void GoBtn_Click(object sender, RoutedEventArgs e)
         {
             Manager.MainFrame.Navigate(new AddEditPage());
         }
+        */
 
         private void TBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -99,6 +101,25 @@ namespace Ignateva_Autoservice
         private void RButtonDown_Checked(object sender, RoutedEventArgs e)
         {
             UpdateServices();
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage(null));
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            Manager.MainFrame.Navigate(new AddEditPage((sender as Button).DataContext as Service));
+        }
+
+        private void Page_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility==Visibility.Visible)
+            {
+                IgnatevaAutoserviceEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+                ServiceListView.ItemsSource = IgnatevaAutoserviceEntities.GetContext().Service.ToList();
+            }
         }
     }
 }
