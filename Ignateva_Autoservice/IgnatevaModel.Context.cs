@@ -15,7 +15,6 @@ namespace Ignateva_Autoservice
     
     public partial class IgnatevaAutoserviceEntities : DbContext
     {
-        //
         private static IgnatevaAutoserviceEntities _context;
 
         public static IgnatevaAutoserviceEntities GetContext()
@@ -24,7 +23,6 @@ namespace Ignateva_Autoservice
                 _context = new IgnatevaAutoserviceEntities();
             return _context;
         }
-        //
 
         public IgnatevaAutoserviceEntities()
             : base("name=IgnatevaAutoserviceEntities")

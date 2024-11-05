@@ -79,7 +79,7 @@
                         <TextBlock Text="{Binding Title}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" FontSize="20" TextWrapping="Wrap"></TextBlock>
                         <TextBlock Text="{Binding Cost, StringFormat={}{0:0} рублей за}"
                                    Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="20"></TextBlock>
-                        <TextBlock Text="{Binding Duration}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20"></TextBlock>
+                        <TextBlock Text="{Binding Duration, StringFormat={}{0:0} минут}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" FontSize="20"></TextBlock>
                         <TextBlock Text="{Binding DiscountInt, StringFormat=*скидка {0} % }"
                                    Opacity="{Binding DiscountInt}" Margin="5"
                                    Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"
@@ -87,6 +87,7 @@
                         <StackPanel Grid.Column="1" Grid.Row="3" Orientation="Horizontal">
                             <Button Name="EditButton" Click="EditButton_Click" Content="редактировать" Margin="2"></Button>
                             <Button Name="DeleteButton" Content="удалить" Margin="2" Click="DeleteButton_Click"></Button>
+                            <Button Name="SignUpButton" Content="записать" Margin="2" Click="SignUpButton_Click"></Button>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

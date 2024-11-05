@@ -18,14 +18,13 @@ namespace Ignateva_Autoservice
         public Service()
         {
             this.ClientService = new HashSet<ClientService>();
-            this.ClientService1 = new HashSet<ClientService>();
             this.ServicePhoto = new HashSet<ServicePhoto>();
         }
     
         public int ID { get; set; }
         public string Title { get; set; }
         public decimal Cost { get; set; }
-        public string Duration { get; set; }
+        public int Duration { get; set; }
         public Nullable<double> Discount { get; set; }
 
         public int DiscountInt
@@ -48,8 +47,6 @@ namespace Ignateva_Autoservice
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ClientService> ClientService { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ClientService> ClientService1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServicePhoto> ServicePhoto { get; set; }
     }

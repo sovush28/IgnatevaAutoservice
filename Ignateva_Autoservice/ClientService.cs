@@ -29,7 +29,6 @@ namespace Ignateva_Autoservice
     
         public virtual Client Client { get; set; }
         public virtual Service Service { get; set; }
-        public virtual Service Service1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DocumentByService> DocumentByService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
