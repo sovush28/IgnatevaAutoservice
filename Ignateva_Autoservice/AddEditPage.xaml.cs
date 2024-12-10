@@ -66,18 +66,31 @@ namespace Ignateva_Autoservice
                 return;
             }
 
-            if (_currentService.ID == 0)
-                IgnatevaAutoserviceEntities.GetContext().Service.Add(_currentService);
+            var allServices = IgnatevaAutoserviceEntities.GetContext().Service.ToList();
+            //allServices = allServices.Where(p => p.Title == _currentService.Title).ToList();
 
-            try
+            //if (allServices.Count == 0)
+            bool serviceExists = allServices.Any(p => p.Title == _currentService.Title && p.ID != _currentService.ID);
+
+            if (!serviceExists)
             {
-                IgnatevaAutoserviceEntities.GetContext().SaveChanges();
-                MessageBox.Show("Информация сохранена");
-                Manager.MainFrame.GoBack();
+                if (_currentService.ID == 0)
+                    IgnatevaAutoserviceEntities.GetContext().Service.Add(_currentService);
+
+                try
+                {
+                    IgnatevaAutoserviceEntities.GetContext().SaveChanges();
+                    MessageBox.Show("Информация сохранена");
+                    Manager.MainFrame.GoBack();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("Уже существует такая услуга");
             }
         }
     }
